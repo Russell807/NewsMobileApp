@@ -1,10 +1,4 @@
 ﻿using Newtonsoft.Json;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using static Android.Graphics.ImageDecoder;
 
 namespace NewsMobileApp.MVVM.Models
 {

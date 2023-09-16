@@ -22,14 +22,14 @@ namespace NewsMobileApp.MVVM.ViewModels
         {
             ListOfCategory = new ObservableCollection<Category>()
            {
-               new Category{Id=1,Name="breaking-news"},
-                new Category{Id=2,Name="world"},
-                 new Category{Id=3,Name="nation"},
-                  new Category{Id=4,Name="bussiness"},
-                   new Category{Id=5,Name="entertainment"},
-                    new Category{Id=6,Name="sports"},
-                     new Category{Id=7,Name="science"},
-                      new Category{Id=8,Name="health"}
+               new Category{Id=1,Name="College of Computer Studies"},
+                new Category{Id=2,Name="College of Bussiness and Accountancy"},
+                 new Category{Id=3,Name="College of Architecture and Fine Arts"},
+                  new Category{Id=4,Name="College of Arts and Social Sciences"},
+                   new Category{Id=5,Name="College of Engineering and Techonology"},
+                    new Category{Id=6,Name=" College of Criminal Justice Education"},
+                     new Category{Id=7,Name="College of Teachers' Education"},
+                      new Category{Id=8,Name="College of Science"}
            };
         }
     }
