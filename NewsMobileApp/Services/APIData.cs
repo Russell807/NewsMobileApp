@@ -13,7 +13,7 @@ namespace NewsMobileApp.Services
         public static async Task<Root> GetNews()
         {
             var httpClient = new HttpClient();
-           var jsonData = await httpClient.GetStringAsync("https://gnews.io/api/v4/top-headlines?category=general&apikey=086839f056fa5c00260c81d20cc15a3c&topic=breaking-news&lang=en");
+           var jsonData = await httpClient.GetStringAsync("https://gnews.io/api/v4/top-headlines?category=general&apikey=086839f056fa5c00260c81d20cc15a3c&topic=breaking-news&lang=en&country=ph");
             var result = JsonConvert.DeserializeObject<Root>(jsonData);
             return result;
         }

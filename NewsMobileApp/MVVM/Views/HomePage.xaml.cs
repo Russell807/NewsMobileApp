@@ -9,21 +9,26 @@ namespace NewsMobileApp.MVVM.Views;
 public partial class HomePage : ContentPage
 {
 
-   
+
+    List<Article> myCollection;
+
 
     public HomePage()
 	{
 		InitializeComponent();
 		CategoryView.BindingContext = new CategoryViewModel();
+        myCollection = new List<Article>();
+        ArticleList1.ItemsSource = myCollection;
 
     }
 	protected override async void OnAppearing()
 	{
-		base.OnAppearing();
-		ArticleList1.ItemsSource = await new NewsViewModel()
-			.LoadNews();
+        base.OnAppearing();
+        var newsViewModel = new NewsViewModel();
+        myCollection = await newsViewModel.LoadNews();
+        ArticleList1.ItemsSource = myCollection;
 
-	}
+    }
     private void OnHyperlinkTapped(object sender, EventArgs e)
     {
      
@@ -36,5 +41,16 @@ public partial class HomePage : ContentPage
                 Launcher.OpenAsync(articleUrl);
             }
         }
+    }
+
+   private void SearchBar_TextChanged(object sender, TextChangedEventArgs e)
+     {
+         var keyword = SearchBar.Text;
+         keyword = keyword.ToLower();
+         ArticleList1.ItemsSource = myCollection.Where(s => s.Title.ToLower().Contains(keyword)).ToList();
+
+
+       
+
     }
 }
