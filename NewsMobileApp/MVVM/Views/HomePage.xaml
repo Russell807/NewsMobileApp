@@ -22,11 +22,13 @@
                    
                    
                     <Label Text="{Binding Name}" />
-                   
+
+                  
+
                 </DataTemplate>
             </CollectionView.ItemTemplate>
         </CollectionView>
-        <CollectionView x:Name="ArticleList1" ItemsSource="{Binding Articles}" Grid.Row="2">
+        <CollectionView x:Name="ArticleList1" ItemsSource="{Binding Articles}" Grid.Row="2" SelectionMode="Single">
             <CollectionView.ItemsLayout>
                 <LinearItemsLayout Orientation="Vertical"
                            ItemSpacing="2"/>
@@ -41,18 +43,21 @@
                             <StackLayout>
                                     <Image Source="{Binding Image}"  HeightRequest="200"/>
                                     <Label Text="{Binding Title}" FontAttributes="Bold"/>
-                                    <Label Text="{Binding Content}"/>
-                                        
+                                
+
+
                                 <Label x:Name="hyperlinkLabel" Text="{Binding Url}" TextColor="blue" TextDecorations="Underline">
                                 <Label.GestureRecognizers>
                                 <TapGestureRecognizer Tapped="OnHyperlinkTapped" />
                                 </Label.GestureRecognizers>
                                 </Label>
+                                <Label Text="{Binding PublishedAt}"/>
+                                <Button x:Name="btn1-russ" Text="Show summary" Clicked="Button_Clicked" WidthRequest="130" HeightRequest="40" HorizontalOptions="End"/>
 
-                                </StackLayout>
+                            </StackLayout>
 
                             </Frame>
-                      
+                        
                     </StackLayout>
                 </DataTemplate>
             </CollectionView.ItemTemplate>

@@ -24,5 +24,7 @@ namespace NewsMobileApp.MVVM.Models
 
         [JsonProperty("source")]
         public Source Source { get; set; }
+
+       
     }
 }

@@ -14,8 +14,7 @@ namespace NewsMobileApp.MVVM.ViewModels
     {
        
         public List<Article> ArticleList { get; set; } = new List<Article>();
-
-       
+        
 
         public async Task <List<Article>> LoadNews() 
         {
