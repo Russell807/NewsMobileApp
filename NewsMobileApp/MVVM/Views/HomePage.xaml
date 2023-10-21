@@ -5,7 +5,12 @@
              Title="HomePage">
     <Grid RowDefinitions="100, auto, *">
         <StackLayout>
+            <HorizontalStackLayout>
             <SearchBar Placeholder="Search..." x:Name="SearchBar" TextChanged="SearchBar_TextChanged"/>
+                <ImageButton Source="sort.png" Margin="10, 0, 0, 0"  HeightRequest="40" WidthRequest="60" Clicked="Button_Clicked_1"/>
+             
+                                                  
+            </HorizontalStackLayout>
             <Label Text="The University Pulse"
                HorizontalOptions="Center"
                VerticalOptions="Center"/>
@@ -52,7 +57,7 @@
                                 </Label.GestureRecognizers>
                                 </Label>
                                 <Label Text="{Binding PublishedAt}"/>
-                                <Button x:Name="btn1-russ" Text="Show summary" Clicked="Button_Clicked" WidthRequest="130" HeightRequest="40" HorizontalOptions="End"/>
+                                <Button x:Name="btn1-russ" Text="Show summary" Clicked="Button_Clicked" WidthRequest="130" HeightRequest="40" HorizontalOptions="End" />
 
                             </StackLayout>
 

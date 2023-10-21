@@ -72,10 +72,28 @@ namespace NewsMobileApp.MVVM.Views
                 {
                     string[] sentences = article.Content.Split(new char[] { '.', '!', '?' }, StringSplitOptions.RemoveEmptyEntries);
 
-                        string summary = sentences[0] + " " + sentences[1];
+                        string summary = sentences[0] + " " + sentences[1]; 
                         await DisplayAlert("Summary", summary + "\n[click the link to read the full article]", "Close");
                  
                 }
+            }
+        }
+
+        // sort function
+        private async void Button_Clicked_1(object sender, EventArgs e)
+        {
+            var action = await DisplayActionSheet("Sort By?", "Cancel", null, "Oldest News", "Latest News");
+            if (action == "Oldest News")
+            {
+
+                myCollection = myCollection.OrderBy(x => x.PublishedAt).ToList();
+                ArticleList1.ItemsSource = myCollection;
+
+            }
+            else if (action == "Latest News")
+            {
+                myCollection = myCollection.OrderByDescending(x => x.PublishedAt).ToList();
+                ArticleList1.ItemsSource = myCollection;
             }
         }
 

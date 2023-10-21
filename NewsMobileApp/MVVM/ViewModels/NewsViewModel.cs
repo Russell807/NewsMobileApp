@@ -25,5 +25,7 @@ namespace NewsMobileApp.MVVM.ViewModels
             }
             return ArticleList;
         }
+
+
     }
 }
