@@ -22,6 +22,7 @@ namespace NewsMobileApp.MVVM.ViewModels
         {
             ListOfCategory = new ObservableCollection<Category>()
     {
+         new Category { Id = 0, Name = "ALL NEWS", ImageSource = "globalnews.avif", BackgroundColor = Color.FromArgb("#000080") },
         new Category { Id = 1, Name = "CCS", ImageSource = "ccs.webp", BackgroundColor = Color.FromArgb("#8B0000") }, 
         new Category { Id = 2, Name = "CBA", ImageSource = "cba.webp", BackgroundColor = Color.FromArgb("#33FF57") }, 
         new Category { Id = 3, Name = "CAFA", ImageSource = "cafa.webp", BackgroundColor = Color.FromArgb("#FF8000") }, 

@@ -1,7 +1,8 @@
 <ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="NewsMobileApp.MVVM.Views.HomePage"
-             Title="HomePage">
+             Title="HomePage"
+             BackgroundColor="White">
     <Grid RowDefinitions="100, auto, *">
         <StackLayout>
             <Label Text="The University Pulse"
@@ -16,8 +17,10 @@
             </HorizontalStackLayout>
         </StackLayout>
 
+        <!-- CollectionView for categories -->
         <CollectionView x:Name="CategoryView" Grid.Row="1"
-                ItemsSource="{Binding ListOfCategory}">
+                        ItemsSource="{Binding ListOfCategory}"
+                        SelectionMode="Single">
             <CollectionView.ItemsLayout>
                 <LinearItemsLayout Orientation="Horizontal" ItemSpacing="5"/>
             </CollectionView.ItemsLayout>
@@ -33,40 +36,35 @@
             </CollectionView.ItemTemplate>
         </CollectionView>
 
-
+        <!-- CollectionView for articles -->
         <CollectionView x:Name="ArticleList1" ItemsSource="{Binding Articles}" Grid.Row="2" SelectionMode="Single" BackgroundColor="#EAEAEA">
-            <!-- Set a background color for the CollectionView -->
             <CollectionView.ItemsLayout>
-                <LinearItemsLayout Orientation="Vertical" ItemSpacing="2"/>
+                <LinearItemsLayout Orientation="Vertical" ItemSpacing="10"/>
             </CollectionView.ItemsLayout>
             <CollectionView.ItemTemplate>
                 <DataTemplate>
-                    <StackLayout>
-                        <Frame BackgroundColor="#FFFFFF">
-                            <!-- Background color for item frame -->
-                            <StackLayout>
-                                <Image Source="{Binding Image}" HeightRequest="200"/>
-                                <Label Text="{Binding Title}" FontAttributes="Bold"/>
-                                <Label x:Name="hyperlinkLabel" Text="{Binding Url}" TextColor="blue" TextDecorations="Underline">
-                                    <Label.GestureRecognizers>
-                                        <TapGestureRecognizer Tapped="OnHyperlinkTapped" />
-                                    </Label.GestureRecognizers>
-                                </Label>
-                                <Label Text="{Binding PublishedAt}"/>
-                                <Button x:Name="btn1-russ" 
-                                        Text="Show summary" 
-                                        Clicked="Button_Clicked" 
-                                        WidthRequest="130" 
-                                        HeightRequest="40" 
-                                        HorizontalOptions="End" 
-                                        BackgroundColor="#971D1D" 
-                                        TextColor="White"/>
-                            </StackLayout>
-                        </Frame>
-                    </StackLayout>
+                    <Frame BackgroundColor="#FFFFFF">
+                        <StackLayout>
+                            <Image Source="{Binding Image}" HeightRequest="200"/>
+                            <Label Text="{Binding Title}" FontAttributes="Bold" FontSize="Header" TextColor="Black"/>
+                            <Label Text="{Binding Url}" TextColor="blue" TextDecorations="Underline">
+                                <Label.GestureRecognizers>
+                                    <TapGestureRecognizer Tapped="OnHyperlinkTapped"/>
+                                </Label.GestureRecognizers>
+                            </Label>
+                            <Label Text="{Binding PublishedAt}" TextColor="Gray"/>
+                            <Button x:Name="btn1-russ" 
+                                    Text="Show summary" 
+                                    Clicked="Button_Clicked" 
+                                    WidthRequest="130" 
+                                    HeightRequest="40" 
+                                    HorizontalOptions="End" 
+                                    BackgroundColor="#971D1D" 
+                                    TextColor="White"/>
+                        </StackLayout>
+                    </Frame>
                 </DataTemplate>
             </CollectionView.ItemTemplate>
         </CollectionView>
-
     </Grid>
 </ContentPage>
