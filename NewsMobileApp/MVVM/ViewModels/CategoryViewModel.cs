@@ -21,16 +21,19 @@ namespace NewsMobileApp.MVVM.ViewModels
         private void LoadCategory()
         {
             ListOfCategory = new ObservableCollection<Category>()
-           {
-               new Category{Id=1,Name="College of Computer Studies"},
-                new Category{Id=2,Name="College of Business and Accountancy"},
-                 new Category{Id=3,Name="College of Architecture and Fine Arts"},
-                  new Category{Id=4,Name="College of Arts and Social Sciences"},
-                   new Category{Id=5,Name="College of Engineering and Technology"},
-                    new Category{Id=6,Name=" College of Criminal Justice Education"},
-                     new Category{Id=7,Name="College of Teachers' Education"},
-                      new Category{Id=8,Name="College of Science"}
-           };
+    {
+        new Category { Id = 1, Name = "CCS", ImageSource = "ccs.webp", BackgroundColor = Color.FromArgb("#8B0000") }, 
+        new Category { Id = 2, Name = "CBA", ImageSource = "cba.webp", BackgroundColor = Color.FromArgb("#33FF57") }, 
+        new Category { Id = 3, Name = "CAFA", ImageSource = "cafa.webp", BackgroundColor = Color.FromArgb("#FF8000") }, 
+        new Category { Id = 4, Name = "CASS", ImageSource = "cass.webp", BackgroundColor = Color.FromArgb("#3357FF") }, 
+        new Category { Id = 5, Name = "CCJE", ImageSource = "ccje.webp", BackgroundColor = Color.FromArgb("#808080") }, 
+        new Category { Id = 6, Name = "CIT", ImageSource = "cit.webp", BackgroundColor = Color.FromArgb("#E1D9D1 ") }, 
+        new Category { Id = 7, Name = "COE", ImageSource = "coe.webp", BackgroundColor = Color.FromArgb("#800000") },
+        new Category { Id = 8, Name = "COS", ImageSource = "cos.webp", BackgroundColor = Color.FromArgb("#808080") }, 
+        new Category { Id = 9, Name = "CPAG", ImageSource = "cpag.webp", BackgroundColor = Color.FromArgb("#008000") }, 
+        new Category { Id = 10, Name = "CTED", ImageSource = "cted.webp", BackgroundColor = Color.FromArgb("#8B8000") }  
+    };
         }
+
     }
 }

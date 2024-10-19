@@ -15,6 +15,9 @@ namespace NewsMobileApp
                 {
                     fonts.AddFont("OpenSans-Regular.ttf", "OpenSansRegular");
                     fonts.AddFont("OpenSans-Semibold.ttf", "OpenSansSemibold");
+                    fonts.AddFont("CreteRound-Italic.ttf", "CreteRoundItalic");
+                    fonts.AddFont("CreteRound-Regular.ttf", "CreteRoundRegular");
+
                 });
 
 #if DEBUG

@@ -49,6 +49,18 @@
 	</ItemGroup>
 
 	<ItemGroup>
+	  <None Remove="Resources\Fonts\CreteRound-Italic.ttf" />
+	  <None Remove="Resources\Fonts\CreteRound-Regular.ttf" />
+	  <None Remove="Resources\Images\cafa.webp" />
+	  <None Remove="Resources\Images\cass.webp" />
+	  <None Remove="Resources\Images\cba.webp" />
+	  <None Remove="Resources\Images\ccje.webp" />
+	  <None Remove="Resources\Images\ccs.webp" />
+	  <None Remove="Resources\Images\cit.webp" />
+	  <None Remove="Resources\Images\coe.webp" />
+	  <None Remove="Resources\Images\cos.webp" />
+	  <None Remove="Resources\Images\cpag.webp" />
+	  <None Remove="Resources\Images\cted.webp" />
 	  <None Remove="Resources\Images\Pink White Aesthetic Floral Group Project Presentation.png" />
 	</ItemGroup>
 
