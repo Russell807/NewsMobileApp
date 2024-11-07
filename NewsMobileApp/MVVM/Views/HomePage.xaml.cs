@@ -65,7 +65,6 @@ namespace NewsMobileApp.MVVM.Views
             }
         }
 
-        // Method to check if the URL is well-formed
         private bool IsValidUrl(string url)
         {
             return Uri.IsWellFormedUriString(url, UriKind.Absolute);
@@ -188,12 +187,16 @@ namespace NewsMobileApp.MVVM.Views
                                                                 a.Content.Contains("university", StringComparison.OrdinalIgnoreCase)));
                     break;
                 default:
-                    // Display all articles if no category matches
                     filteredArticles = myCollection;
                     break;
             }
 
             ArticleList1.ItemsSource = filteredArticles.ToList();
+        }
+
+        private void OnImageButtonClicked(object sender, EventArgs e)
+        {
+
         }
     }
 }

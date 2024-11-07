@@ -17,7 +17,6 @@
             </HorizontalStackLayout>
         </StackLayout>
 
-        <!-- CollectionView for categories -->
         <CollectionView x:Name="CategoryView" Grid.Row="1"
                         ItemsSource="{Binding ListOfCategory}"
                         SelectionMode="Single">
@@ -36,7 +35,7 @@
             </CollectionView.ItemTemplate>
         </CollectionView>
 
-        <!-- CollectionView for articles -->
+       
         <CollectionView x:Name="ArticleList1" ItemsSource="{Binding Articles}" Grid.Row="2" SelectionMode="Single" BackgroundColor="#EAEAEA">
             <CollectionView.ItemsLayout>
                 <LinearItemsLayout Orientation="Vertical" ItemSpacing="10"/>
@@ -53,14 +52,23 @@
                                 </Label.GestureRecognizers>
                             </Label>
                             <Label Text="{Binding PublishedAt}" TextColor="Gray"/>
-                            <Button x:Name="btn1-russ" 
-                                    Text="Show summary" 
-                                    Clicked="Button_Clicked" 
-                                    WidthRequest="130" 
-                                    HeightRequest="40" 
-                                    HorizontalOptions="End" 
-                                    BackgroundColor="#971D1D" 
-                                    TextColor="White"/>
+                            <HorizontalStackLayout HorizontalOptions="End" Spacing="0">
+                                <Button x:Name="btn1-russ" 
+                                Text="Show summary" 
+                                Clicked="Button_Clicked" 
+                                WidthRequest="130" 
+                                HeightRequest="40" 
+                                BackgroundColor="#971D1D" 
+                                TextColor="White"/>
+                                
+                               <ImageButton Source="savebutton.png"
+                                     HeightRequest="60"
+                                     WidthRequest="60"
+                                      Clicked="OnImageButtonClicked"
+                                     HorizontalOptions="End"
+                                     Padding="0"/>  
+                            </HorizontalStackLayout>            
+
                         </StackLayout>
                     </Frame>
                 </DataTemplate>
