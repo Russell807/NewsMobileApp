@@ -6,12 +6,16 @@ using System.Linq;
 using System.Windows.Input;
 using CommunityToolkit.Maui.Views;
 using Microsoft.Maui.Controls;
+using System.Collections.ObjectModel;
+using Microsoft.Maui.Storage;
+using System.Text.Json;
 
 namespace NewsMobileApp.MVVM.Views
 {
     public partial class HomePage : ContentPage
     {
         List<Article> myCollection;
+        public static ObservableCollection<Article> SavedArticles { get; set; } = new ObservableCollection<Article>();
 
         public HomePage()
         {
@@ -22,6 +26,9 @@ namespace NewsMobileApp.MVVM.Views
 
             // Subscribe to the Category selection event
             CategoryView.SelectionChanged += CategoryView_SelectionChanged;
+
+            // Load saved articles when the page is created
+            LoadSavedArticles();
         }
 
         protected override async void OnAppearing()
@@ -69,7 +76,6 @@ namespace NewsMobileApp.MVVM.Views
         {
             return Uri.IsWellFormedUriString(url, UriKind.Absolute);
         }
-
 
         // Search function
         private void SearchBar_TextChanged(object sender, TextChangedEventArgs e)
@@ -194,9 +200,43 @@ namespace NewsMobileApp.MVVM.Views
             ArticleList1.ItemsSource = filteredArticles.ToList();
         }
 
+        // Save the articles to Preferences
+        public void SaveSavedArticles()
+        {
+            string savedArticlesJson = JsonSerializer.Serialize(SavedArticles);
+            Preferences.Set("savedArticles", savedArticlesJson);
+        }
+
+        // Load the saved articles from Preferences
+        public void LoadSavedArticles()
+        {
+            string savedArticlesJson = Preferences.Get("savedArticles", string.Empty);
+            if (!string.IsNullOrEmpty(savedArticlesJson))
+            {
+                var savedArticles = JsonSerializer.Deserialize<List<Article>>(savedArticlesJson);
+                foreach (var article in savedArticles)
+                {
+                    SavedArticles.Add(article);
+                }
+            }
+        }
+
         private void OnImageButtonClicked(object sender, EventArgs e)
         {
+            // Get the article from the button's BindingContext
+            var article = (sender as ImageButton).BindingContext as Article;
 
+            // Check if the article already exists in the SavedArticles collection
+            if (!SavedArticles.Any(a => a.Url == article.Url)) // Use a custom comparison
+            {
+                // If not, save the article
+                SavedArticles.Add(article);
+                SaveSavedArticles();  // Save the article after adding it
+            }
+            else
+            {
+                DisplayAlert("Duplicate", "This article is already saved.", "OK");
+            }
         }
     }
 }

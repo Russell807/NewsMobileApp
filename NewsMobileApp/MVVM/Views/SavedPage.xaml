@@ -4,9 +4,28 @@
              x:Class="NewsMobileApp.MVVM.Views.SavedPage"
              Title="SavedPage">
     <VerticalStackLayout>
-        <Label 
-            Text="Welcome to .NET MAUI!"
-            VerticalOptions="Center" 
-            HorizontalOptions="Center" />
+        <CollectionView x:Name="SavedArticlesList" ItemsSource="{Binding SavedArticles}">
+            <CollectionView.ItemsLayout>
+                <LinearItemsLayout Orientation="Vertical" />
+            </CollectionView.ItemsLayout>
+            <CollectionView.ItemTemplate>
+                <DataTemplate>
+                    <Frame BackgroundColor="#FFFFFF" Padding="10" Margin="5" HasShadow="True" CornerRadius="5">
+                        <StackLayout>
+                            <Image Source="{Binding Image}" HeightRequest="200"/>
+                            <Label Text="{Binding Title}" FontAttributes="Bold" FontSize="Header" TextColor="Black"/>
+                            <Label Text="{Binding Url}" TextColor="blue" TextDecorations="Underline"/>
+                            <Label Text="{Binding PublishedAt}" TextColor="Gray"/>
+
+                            <!-- Unsave Button -->
+                            <Button Text="Unsave"
+                                    BackgroundColor="#971D1D"
+                                    TextColor="White"
+                                    Clicked="OnUnsaveClicked"/>
+                        </StackLayout>
+                    </Frame>
+                </DataTemplate>
+            </CollectionView.ItemTemplate>
+        </CollectionView>
     </VerticalStackLayout>
 </ContentPage>
